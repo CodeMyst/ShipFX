@@ -27,11 +27,16 @@ public class Projectile extends Body {
     public void finish() {
         if (!finished) {
             finished = true;
+            ps.stop();
         }
     }
 
     public boolean isFinished() {
-        return finished;
+        return finished && !ps.isAlive();
+    }
+
+    public boolean shouldCheckCollisions() {
+        return !finished;
     }
 
     @Override
@@ -40,7 +45,9 @@ public class Projectile extends Body {
 
         ps.draw(view, time);
 
-        view.setImageSmoothing(false);
-        view.drawImageCentered(p, sprite, 0.75);
+        if (!finished) {
+            view.setImageSmoothing(false);
+            view.drawImageCentered(p, sprite, 0.75);
+        }
     }
 }

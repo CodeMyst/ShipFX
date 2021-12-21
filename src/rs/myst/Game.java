@@ -142,7 +142,7 @@ public class Game implements Drawing {
                 // jeste,
                 // pravimo eksploziju na mestu neprijateljskog broda i uklanjamo i njega i
                 // projektil.
-                if (!projectile.isFinished()) {
+                if (!projectile.isFinished() && projectile.shouldCheckCollisions()) {
                     if (enemy.collidesWith(projectile, t)) {
                         explosions.add(new ExplosionParticleSystem(t, enemy));
                         enemiesToRemove.add(enemy);
