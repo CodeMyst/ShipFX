@@ -16,7 +16,7 @@ public class Asteroid extends Body {
                 time,
                 new Vector(-350 + 700 * Math.random(), 425),
                 new Vector(0, (-30 - 30 * Math.random()) * (1 + time / 20)),
-                25);
+                15);
 
         this.sprite = sprite;
     }
@@ -31,7 +31,7 @@ public class Asteroid extends Body {
         Transformation t = new Transformation().rotate(0.1 * time * (dir ? -1 : 1)).translate(p);
         view.setTransformation(t);
         view.setImageSmoothing(false);
-        view.drawImageCentered(Vector.ZERO, sprite, 0.75);
+        view.drawImageCentered(Vector.ZERO, sprite, 0.5);
 
         view.stateRestore();
     }
