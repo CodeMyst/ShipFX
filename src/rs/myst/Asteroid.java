@@ -31,7 +31,7 @@ public class Asteroid extends Body {
         Transformation t = new Transformation().rotate(0.1 * time * (dir ? -1 : 1)).translate(p);
         view.setTransformation(t);
         view.setImageSmoothing(false);
-        view.drawImageCentered(Vector.ZERO, sprite, 0.5);
+        view.drawImageCentered(Vector.ZERO, sprite, 0.45);
 
         view.stateRestore();
     }
